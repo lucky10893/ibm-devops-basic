@@ -30,7 +30,7 @@ pipeline {
    
    stage('artifact'){
    steps{
-   archiveArtifacts '/target/devops.war'
+   archiveArtifacts 'target/devops.war'
    }
    }
 }
