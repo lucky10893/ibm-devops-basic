@@ -12,8 +12,7 @@ pipeline {
       steps {
     withMaven(maven: 'mvn-3.6.3') {
       sh 'mvn clean package'
-        }
-        
+        } 
       }  
    }
    
@@ -27,6 +26,12 @@ pipeline {
      echo ${WORKSPACE}
     echo ${BUILDNUMBER} '''
     }
+   }
+   
+   stage('artifact'){
+   steps{
+   archiveArtifacts '/target/devops.war'
+   }
    }
 }
 }
